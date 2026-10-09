@@ -1,0 +1,20 @@
+digraph G {
+  rankdir=LR; bgcolor="#ffffff"; graph [fontname="Arial", labelloc="t", label="Diagrama de casos de uso - Brújula Académica", fontsize=18, pad=0.25, nodesep=0.34, ranksep=0.8];
+  node [fontname="Arial", fontsize=10, color="#24566A", fontcolor="#163746", margin="0.12,0.08"];
+  edge [color="#527887", arrowsize=0.65, penwidth=1.1];
+  student [shape=box, style="rounded,filled", fillcolor="#DCEFF4", label="Estudiante"];
+  advisor [shape=box, style="rounded,filled", fillcolor="#E5F4E8", label="Asesor académico"];
+  curator [shape=box, style="rounded,filled", fillcolor="#FFF2CF", label="Curador de contenidos"];
+  admin [shape=box, style="rounded,filled", fillcolor="#F0EAFE", label="Administrador técnico"];
+  subgraph cluster_system { label="Sistema web"; color="#A7C6D1"; style="rounded,dashed";
+    profile [shape=ellipse, style="filled", fillcolor="#EAF4F6", label="Configurar perfil e intereses"];
+    catalog [shape=ellipse, style="filled", fillcolor="#EAF4F6", label="Explorar catálogo"];
+    recommend [shape=ellipse, style="filled", fillcolor="#FFF2CF", label="Consultar recomendaciones\nexplicadas"];
+    feedback [shape=ellipse, style="filled", fillcolor="#EAF4F6", label="Guardar / valorar recurso"];
+    summary [shape=ellipse, style="filled", fillcolor="#E5F4E8", label="Consultar resumen agregado"];
+    manage [shape=ellipse, style="filled", fillcolor="#FFF2CF", label="Administrar metadatos\nde recursos"];
+    access [shape=ellipse, style="filled", fillcolor="#F0EAFE", label="Gestionar roles y auditoría"];
+  }
+  student -> profile; student -> catalog; student -> recommend; student -> feedback;
+  advisor -> summary; curator -> catalog; curator -> manage; admin -> access;
+}

@@ -1,0 +1,13 @@
+classDiagram
+  Student "1" --> "1" AcademicProfile : hasProfile
+  AcademicProfile "*" --> "*" Topic : hasInterest
+  AcademicProfile "*" --> "*" Competency : hasCompetency
+  LearningResource "*" --> "*" Topic : coversTopic
+  LearningResource "*" --> "*" Competency : addressesCompetency
+  Course "*" --> "*" Competency : requiresCompetency
+  Recommendation "*" --> "1" Student : generatedFor
+  Recommendation "*" --> "1..*" LearningResource : recommendsResource
+  Recommendation "*" --> "*" Competency : basedOnCompetency
+  Student "1" --> "0..*" Feedback : givesFeedback
+  Feedback "*" --> "1" Recommendation : aboutRecommendation
+  Student "*" --> "1" Advisor : assignedAdvisor

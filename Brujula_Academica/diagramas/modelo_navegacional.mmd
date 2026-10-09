@@ -1,0 +1,12 @@
+flowchart LR
+  A[Inicio / acceso] --> B[Panel personal]
+  B --> C[Mi perfil e intereses]
+  B --> D[Autoevaluación]
+  C --> E[Recomendaciones explicadas]
+  D --> E
+  B --> F[Explorar catálogo]
+  E --> G[Detalle del recurso]
+  F --> G
+  G --> H[Guardar / valorar / ocultar]
+  B -. solo rol asesor .-> I[Panel de asesor]
+  I --> J[Resumen agregado]

@@ -1,0 +1,9 @@
+flowchart TB
+  U[Usuario: estudiante / asesor / coordinación] --> W[Interfaz web responsive]
+  W --> API[API REST: autenticación y validación]
+  API --> S[Servicios: perfiles, catálogo, feedback]
+  S --> DB[(Persistencia relacional)]
+  S --> R[Motor de recomendación explicable]
+  R --> O[Ontología OWL / Protégé]
+  R --> G[(Grafo Neo4j / Cypher)]
+  S -. adaptador opcional .-> SOAP[SOAP / WSDL legado]

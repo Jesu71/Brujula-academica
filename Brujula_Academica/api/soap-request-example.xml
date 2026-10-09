@@ -1,0 +1,4 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ba="https://example.org/brujula-academica/soap">
+  <soapenv:Header/>
+  <soapenv:Body><ba:RecomendarRecursosRequest><ba:studentId>STU-001</ba:studentId><ba:limit>5</ba:limit></ba:RecomendarRecursosRequest></soapenv:Body>
+</soapenv:Envelope>

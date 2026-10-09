@@ -1,0 +1,187 @@
+openapi: 3.0.3
+info:
+  title: Brújula Académica API
+  version: 1.0.0
+  description: Diseño conceptual REST para recomendaciones académicas con datos sintéticos.
+servers:
+  - url: https://api.example.org/v1
+paths:
+  /students/{studentId}/profile:
+    parameters:
+      - in: path
+        name: studentId
+        required: true
+        schema: {type: string}
+    get:
+      summary: Consultar perfil académico
+      responses:
+        '200':
+          description: Perfil sintético del estudiante
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/AcademicProfile'}
+        '404': {description: Estudiante no encontrado}
+        '403': {description: Perfil fuera del alcance del usuario}
+    put:
+      summary: Actualizar intereses y objetivos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/AcademicProfile'}
+      responses:
+        '200': {description: Perfil actualizado}
+        '400': {description: Datos inválidos}
+        '403': {description: Operación no autorizada}
+  /students/{studentId}/recommendations:
+    parameters:
+      - in: path
+        name: studentId
+        required: true
+        schema: {type: string}
+    get:
+      summary: Obtener recomendaciones explicadas
+      parameters:
+        - in: query
+          name: limit
+          schema: {type: integer, minimum: 1, maximum: 20, default: 5}
+        - in: query
+          name: modality
+          schema: {type: string, enum: [Virtual, Presencial, Mixta]}
+        - in: query
+          name: maxHours
+          schema: {type: number, minimum: 0}
+      responses:
+        '200':
+          description: Lista ordenada de recursos sugeridos
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {$ref: '#/components/schemas/Recommendation'}
+        '404': {description: Estudiante no encontrado}
+  /resources:
+    get:
+      summary: Explorar y filtrar catálogo
+      parameters:
+        - in: query
+          name: topic
+          schema: {type: string}
+        - in: query
+          name: level
+          schema: {type: string}
+        - in: query
+          name: modality
+          schema: {type: string, enum: [Virtual, Presencial, Mixta]}
+        - in: query
+          name: query
+          schema: {type: string, maxLength: 100}
+      responses:
+        '200': {description: Catálogo filtrado}
+  /resources/{resourceId}:
+    get:
+      summary: Consultar detalle de recurso
+      parameters:
+        - in: path
+          name: resourceId
+          required: true
+          schema: {type: string}
+      responses:
+        '200':
+          description: Metadatos, temas y competencias del recurso
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Resource'}
+        '404': {description: Recurso no encontrado}
+  /recommendations/{recommendationId}/feedback:
+    post:
+      summary: Registrar valoración de una recomendación
+      parameters:
+        - in: path
+          name: recommendationId
+          required: true
+          schema: {type: string}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [rating]
+              properties:
+                rating: {type: integer, minimum: 1, maximum: 5}
+                comment: {type: string, maxLength: 500}
+                action: {type: string, enum: [save, hide, complete]}
+      responses:
+        '201': {description: Retroalimentación registrada}
+        '400': {description: Valoración fuera de rango}
+        '404': {description: Recomendación no encontrada}
+  /advisors/{advisorId}/summary:
+    get:
+      summary: Consultar necesidades agregadas sin ranking individual
+      parameters:
+        - in: path
+          name: advisorId
+          required: true
+          schema: {type: string}
+      responses:
+        '200': {description: Resumen agregado de intereses y brechas de competencias}
+        '403': {description: Rol sin autorización}
+  /admin/resources:
+    post:
+      summary: Crear un recurso de catálogo
+      description: Operación reservada a un curador de contenidos autorizado.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Resource'}
+      responses:
+        '201': {description: Recurso creado}
+        '400': {description: Metadatos inválidos}
+        '403': {description: Rol sin autorización}
+components:
+  schemas:
+    AcademicProfile:
+      type: object
+      properties:
+        goal: {type: string, maxLength: 250}
+        interests:
+          type: array
+          items: {type: string}
+        competencies:
+          type: array
+          items:
+            type: object
+            properties:
+              name: {type: string}
+              proficiency: {type: number, minimum: 0, maximum: 1}
+    Resource:
+      type: object
+      required: [title, level, modality, estimatedHours]
+      properties:
+        id: {type: string, readOnly: true}
+        title: {type: string, maxLength: 160}
+        topics:
+          type: array
+          items: {type: string}
+        competencies:
+          type: array
+          items: {type: string}
+        level: {type: string, enum: [Básico, Intermedio, Avanzado]}
+        modality: {type: string, enum: [Virtual, Presencial, Mixta]}
+        estimatedHours: {type: number, minimum: 0}
+        url: {type: string, format: uri}
+    Recommendation:
+      type: object
+      required: [id, resourceId, title, score, explanation]
+      properties:
+        id: {type: string}
+        resourceId: {type: string}
+        title: {type: string}
+        score: {type: number, minimum: 0, maximum: 1}
+        explanation:
+          type: array
+          minItems: 1
+          items: {type: string}
+        estimatedHours: {type: number, minimum: 0}

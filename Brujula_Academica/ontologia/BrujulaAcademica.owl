@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:ba="https://example.org/brujula-academica#"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:nodeID="N1d65816d01ae4093827b203011d2fba5">
+    <rdf:first rdf:resource="https://example.org/brujula-academica#some_programming_comp"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#topicAlgorithms">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#Topic"/>
+    <rdfs:label xml:lang="es">Algoritmos</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#basedOnCompetency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">seBasaEnCompetencia</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Recommendation"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#Competency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#Student">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">Estudiante</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/brujula-academica#restriction_student_profile_exactly_one"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#competencyREST">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#APICompetency"/>
+    <ba:proficiencyLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.50</ba:proficiencyLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#restriction_recommendation_one_student">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/brujula-academica#generatedFor"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="https://example.org/brujula-academica#Student"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4038c50ad8634a32acaf3343cacff2e0">
+    <rdf:first rdf:resource="https://example.org/brujula-academica#some_data_comp"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#ResourceForData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">RecursoParaDatos</rdfs:label>
+    <owl:equivalentClass rdf:resource="https://example.org/brujula-academica#intersection_data_resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#topicWeb">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#Topic"/>
+    <rdfs:label xml:lang="es">Desarrollo web</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#profileAna">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#AcademicProfile"/>
+    <ba:profileGoal>Fortalecer programación y lógica</ba:profileGoal>
+    <ba:hasInterest rdf:resource="https://example.org/brujula-academica#topicProgramming"/>
+    <ba:hasInterest rdf:resource="https://example.org/brujula-academica#topicAlgorithms"/>
+    <ba:hasCompetency rdf:resource="https://example.org/brujula-academica#competencyPython"/>
+    <ba:hasCompetency rdf:resource="https://example.org/brujula-academica#competencyLogic"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#courseAlgorithms">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#Course"/>
+    <ba:requiresCompetency rdf:resource="https://example.org/brujula-academica#competencyPython"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#requiresCompetency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">requiereCompetencia</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Course"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#Competency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#Advisor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">AsesorAcademico</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#hasProfile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">tienePerfil</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Student"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#AcademicProfile"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#list_basic_resource">
+    <rdf:first rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <rdf:rest rdf:nodeID="N546d498e196c4ebb882ba6531b63dc3b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#recommendationLuisSQL">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#Recommendation"/>
+    <ba:generatedFor rdf:resource="https://example.org/brujula-academica#studentLuis"/>
+    <ba:recommendsResource rdf:resource="https://example.org/brujula-academica#resourceSQLLab"/>
+    <ba:basedOnCompetency rdf:resource="https://example.org/brujula-academica#competencySQL"/>
+    <ba:recommendationScore rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.86</ba:recommendationScore>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#resourceAlgoPractice">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <ba:resourceTitle>Retos de lógica y algoritmos</ba:resourceTitle>
+    <ba:difficultyLevel>Básico</ba:difficultyLevel>
+    <ba:estimatedHours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</ba:estimatedHours>
+    <ba:modality>Mixta</ba:modality>
+    <ba:addressesCompetency rdf:resource="https://example.org/brujula-academica#competencyLogic"/>
+    <ba:coversTopic rdf:resource="https://example.org/brujula-academica#topicAlgorithms"/>
+    <ba:supplementsCourse rdf:resource="https://example.org/brujula-academica#courseAlgorithms"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#proficiencyLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="es">nivelDominio</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Competency"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#studentLuis">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#Student"/>
+    <ba:studentName>Luis Rojas</ba:studentName>
+    <ba:semester rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</ba:semester>
+    <ba:hasProfile rdf:resource="https://example.org/brujula-academica#profileLuis"/>
+    <ba:assignedAdvisor rdf:resource="https://example.org/brujula-academica#advisorCarlos"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#Course">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">Curso</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#some_data_comp">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/brujula-academica#addressesCompetency"/>
+    <owl:someValuesFrom rdf:resource="https://example.org/brujula-academica#DataCompetency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#topicProgramming">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#Topic"/>
+    <rdfs:label xml:lang="es">Programación</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#estimatedHours">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="es">horasEstimadas</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#feedbackRating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="es">calificacion</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Feedback"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#restriction_student_profile_exactly_one">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/brujula-academica#hasProfile"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="https://example.org/brujula-academica#AcademicProfile"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N546d498e196c4ebb882ba6531b63dc3b">
+    <rdf:first rdf:resource="https://example.org/brujula-academica#has_value_basic"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#resourceTitle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="es">tituloRecurso</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#list_programming_resource">
+    <rdf:first rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <rdf:rest rdf:nodeID="N1d65816d01ae4093827b203011d2fba5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#givesFeedback">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">emiteRetroalimentacion</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Student"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#Feedback"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#has_value_basic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/brujula-academica#difficultyLevel"/>
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Básico</owl:hasValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#aboutRecommendation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">evaluaRecomendacion</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Feedback"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#Recommendation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#semester">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="es">semestre</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Student"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#hasInterest">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">tieneInteres</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#AcademicProfile"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#Topic"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#Topic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">Tema</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#APICompetency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">CompetenciaAPI</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/brujula-academica#Competency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#resourceSQLLab">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <ba:resourceTitle>Laboratorio visual de SQL</ba:resourceTitle>
+    <ba:difficultyLevel>Intermedio</ba:difficultyLevel>
+    <ba:estimatedHours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</ba:estimatedHours>
+    <ba:modality>Virtual</ba:modality>
+    <ba:addressesCompetency rdf:resource="https://example.org/brujula-academica#competencySQL"/>
+    <ba:coversTopic rdf:resource="https://example.org/brujula-academica#topicData"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#ProgrammingResource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">RecursoProgramacion</rdfs:label>
+    <owl:equivalentClass rdf:resource="https://example.org/brujula-academica#intersection_programming_resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#hasCompetency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">poseeCompetencia</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#AcademicProfile"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#Competency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#modality">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="es">modalidad</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#Competency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">Competencia</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#restriction_recommendation_some_resource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/brujula-academica#recommendsResource"/>
+    <owl:someValuesFrom rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#competencyLogic">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#ProgrammingCompetency"/>
+    <ba:proficiencyLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.40</ba:proficiencyLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#relatedTopic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">temaRelacionadoCon</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Topic"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#Topic"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#DataCompetency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">CompetenciaDatos</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/brujula-academica#Competency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#studentName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="es">nombreEstudiante</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Student"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#generatedFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">generadaPara</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Recommendation"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#Student"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#Recommendation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">Recomendacion</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/brujula-academica#restriction_recommendation_one_student"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/brujula-academica#restriction_recommendation_some_resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#BasicResource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">RecursoBasico</rdfs:label>
+    <owl:equivalentClass rdf:resource="https://example.org/brujula-academica#intersection_basic_resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#coversTopic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">cubreTema</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#Topic"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#profileGoal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="es">objetivoAcademico</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#AcademicProfile"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#supplementsCourse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">complementaCurso</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#Course"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#topicData">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#Topic"/>
+    <rdfs:label xml:lang="es">Datos</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#profileLuis">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#AcademicProfile"/>
+    <ba:profileGoal>Practicar datos y servicios web</ba:profileGoal>
+    <ba:hasInterest rdf:resource="https://example.org/brujula-academica#topicData"/>
+    <ba:hasInterest rdf:resource="https://example.org/brujula-academica#topicWeb"/>
+    <ba:hasCompetency rdf:resource="https://example.org/brujula-academica#competencySQL"/>
+    <ba:hasCompetency rdf:resource="https://example.org/brujula-academica#competencyREST"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#assignedAdvisor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">tieneAsesor</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Student"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#Advisor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#some_programming_comp">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="https://example.org/brujula-academica#addressesCompetency"/>
+    <owl:someValuesFrom rdf:resource="https://example.org/brujula-academica#ProgrammingCompetency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#recommendationScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="es">puntajeRecomendacion</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Recommendation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#intersection_programming_resource">
+    <owl:intersectionOf rdf:resource="https://example.org/brujula-academica#list_programming_resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#recommendsResource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">recomiendaRecurso</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#Recommendation"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#recommendationAnaPython">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#Recommendation"/>
+    <ba:generatedFor rdf:resource="https://example.org/brujula-academica#studentAna"/>
+    <ba:recommendsResource rdf:resource="https://example.org/brujula-academica#resourcePythonBasics"/>
+    <ba:basedOnCompetency rdf:resource="https://example.org/brujula-academica#competencyPython"/>
+    <ba:recommendationScore rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.92</ba:recommendationScore>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#advisorMaria">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#Advisor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#competencySQL">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#DataCompetency"/>
+    <ba:proficiencyLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.30</ba:proficiencyLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#ProgrammingCompetency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">CompetenciaProgramacion</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://example.org/brujula-academica#Competency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#list_data_resource">
+    <rdf:first rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <rdf:rest rdf:nodeID="N4038c50ad8634a32acaf3343cacff2e0"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#resourcePythonBasics">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <ba:resourceTitle>Python desde cero</ba:resourceTitle>
+    <ba:difficultyLevel>Básico</ba:difficultyLevel>
+    <ba:estimatedHours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</ba:estimatedHours>
+    <ba:modality>Virtual</ba:modality>
+    <ba:addressesCompetency rdf:resource="https://example.org/brujula-academica#competencyPython"/>
+    <ba:coversTopic rdf:resource="https://example.org/brujula-academica#topicProgramming"/>
+    <ba:supplementsCourse rdf:resource="https://example.org/brujula-academica#courseAlgorithms"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#resourceRESTGuide">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <ba:resourceTitle>Guía práctica de API REST</ba:resourceTitle>
+    <ba:difficultyLevel>Básico</ba:difficultyLevel>
+    <ba:estimatedHours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</ba:estimatedHours>
+    <ba:modality>Virtual</ba:modality>
+    <ba:addressesCompetency rdf:resource="https://example.org/brujula-academica#competencyREST"/>
+    <ba:coversTopic rdf:resource="https://example.org/brujula-academica#topicWeb"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#BrujulaAcademica">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="es">Ontología de Brújula Académica</rdfs:label>
+    <dcterms:description xml:lang="es">Modelo semántico académico de demostración construido con datos sintéticos para el Proyecto Final de Ingeniería Web.</dcterms:description>
+    <owl:versionInfo>1.0.0 - propuesta académica</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#difficultyLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="es">nivelDificultad</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#LearningResource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">RecursoAprendizaje</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#feedbackAnaPython">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#Feedback"/>
+    <ba:aboutRecommendation rdf:resource="https://example.org/brujula-academica#recommendationAnaPython"/>
+    <ba:feedbackRating rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</ba:feedbackRating>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#studentAna">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#Student"/>
+    <ba:studentName>Ana Torres</ba:studentName>
+    <ba:semester rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</ba:semester>
+    <ba:hasProfile rdf:resource="https://example.org/brujula-academica#profileAna"/>
+    <ba:assignedAdvisor rdf:resource="https://example.org/brujula-academica#advisorMaria"/>
+    <ba:givesFeedback rdf:resource="https://example.org/brujula-academica#feedbackAnaPython"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#addressesCompetency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="es">fortaleceCompetencia</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/brujula-academica#LearningResource"/>
+    <rdfs:range rdf:resource="https://example.org/brujula-academica#Competency"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#competencyPython">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#ProgrammingCompetency"/>
+    <ba:proficiencyLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.45</ba:proficiencyLevel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#AcademicProfile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">PerfilAcademico</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#Feedback">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">Retroalimentacion</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#intersection_data_resource">
+    <owl:intersectionOf rdf:resource="https://example.org/brujula-academica#list_data_resource"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#advisorCarlos">
+    <rdf:type rdf:resource="https://example.org/brujula-academica#Advisor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/brujula-academica#intersection_basic_resource">
+    <owl:intersectionOf rdf:resource="https://example.org/brujula-academica#list_basic_resource"/>
+  </rdf:Description>
+</rdf:RDF>

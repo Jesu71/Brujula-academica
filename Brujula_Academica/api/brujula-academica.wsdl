@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:tns="https://example.org/brujula-academica/soap"
+ targetNamespace="https://example.org/brujula-academica/soap"
+ name="BrujulaAcademicaService">
+  <types><xsd:schema targetNamespace="https://example.org/brujula-academica/soap" elementFormDefault="qualified">
+    <xsd:element name="RecomendarRecursosRequest"><xsd:complexType><xsd:sequence><xsd:element name="studentId" type="xsd:string"/><xsd:element name="limit" type="xsd:int" minOccurs="0"/></xsd:sequence></xsd:complexType></xsd:element>
+    <xsd:element name="RecomendarRecursosResponse"><xsd:complexType><xsd:sequence><xsd:element name="resource" minOccurs="0" maxOccurs="unbounded"><xsd:complexType><xsd:sequence><xsd:element name="resourceId" type="xsd:string"/><xsd:element name="title" type="xsd:string"/><xsd:element name="score" type="xsd:decimal"/><xsd:element name="explanation" type="xsd:string"/></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:complexType></xsd:element>
+  </xsd:schema></types>
+  <message name="RecomendarRecursosInput"><part name="parameters" element="tns:RecomendarRecursosRequest"/></message>
+  <message name="RecomendarRecursosOutput"><part name="parameters" element="tns:RecomendarRecursosResponse"/></message>
+  <portType name="BrujulaAcademicaPortType"><operation name="RecomendarRecursos"><input message="tns:RecomendarRecursosInput"/><output message="tns:RecomendarRecursosOutput"/></operation></portType>
+  <binding name="BrujulaAcademicaSoapBinding" type="tns:BrujulaAcademicaPortType"><soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/><operation name="RecomendarRecursos"><soap:operation soapAction="https://example.org/brujula-academica/soap/RecomendarRecursos"/><input><soap:body use="literal"/></input><output><soap:body use="literal"/></output></operation></binding>
+  <service name="BrujulaAcademicaService"><port name="BrujulaAcademicaSoapPort" binding="tns:BrujulaAcademicaSoapBinding"><soap:address location="https://api.example.org/soap/recommendations"/></port></service>
+</definitions>
