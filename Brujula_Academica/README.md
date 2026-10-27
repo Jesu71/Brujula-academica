@@ -15,7 +15,6 @@ La propuesta no es un sistema institucional productivo: no autentica usuarios, n
 - `presentacion/Presentacion_Brujula_Academica.pptx` — presentación para sustentación.
 - `prototipo/index.html` — prototipo navegable sin dependencias, abrirlo en el navegador.
 - `ontologia/BrujulaAcademica.owl` — ontología OWL en RDF/XML para Protégé.
-- `neo4j/brujula_academica.cypher` — restricciones, datos sintéticos y consultas Cypher.
 - `api/openapi.yaml` — contrato REST de referencia.
 - `api/brujula-academica.wsdl` — ejemplo conceptual de SOAP/WSDL.
 - `api/soap-request-example.xml` — solicitud SOAP de ejemplo.
