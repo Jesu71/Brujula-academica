@@ -1,6 +1,6 @@
 # Brújula Académica — Proyecto Final de Ingeniería Web
 
-**Periodo:** 2620 · **Estado del tema:** propuesta pendiente de aprobación docente.
+**Periodo:** 2620.
 
 ## Qué es este paquete
 
